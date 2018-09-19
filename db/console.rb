@@ -52,6 +52,10 @@ artist1 = Artist.new({
 
         album1.artist()
 
+        Artist.find_by_id(artist1.id)
+
+        Album.find_by_id(album1.id)
+
 
         binding.pry
         nil

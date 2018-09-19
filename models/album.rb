@@ -56,10 +56,16 @@ class Album
 
     values = [@artist_id]
     result = SqlRunner.run(sql, values)
-    binding.pry
+    # binding.pry
     Artist.new(result[0])
     # This example assumes that each album only has one artist at index 0. If there is more than one artist i.e. artist collaboration, then the result variable would need to be mapped to show the hash in an array with multiple artists.
   end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM albums WHERE id = $1"
 
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    Album.new(result[0])
+  end
 end
